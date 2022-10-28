@@ -6,10 +6,10 @@ const port =3000;
 const server = http.createServer((req, res) => {
   let filePath = path.join(
     __dirname,
-    "pages",
+    "/",
     req.url === "/" ? "home.html" : "about.html" || "contact.html"
   );
-  let emptyPage = path.join(__dirname, "pages", 'not_found.html');
+  let emptyPage = path.join(__dirname, "/", 'not_found.html');
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
         if (err.code === 'ENOENT') {
